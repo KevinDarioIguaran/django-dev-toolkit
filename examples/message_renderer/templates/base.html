@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'django_dev_toolkit/css/django_dev_toolkit/messages.css' %}">
+    <script src="{% static 'django_dev_toolkit/js/renderers.js' %}"></script>
+    {% block head %}{% endblock %}
+</head>
+
+<body class="min-h-screen bg-zinc-100 text-zinc-900">
+    {% block content %}
+    {% endblock %}
+
+    {% include 'django_dev_toolkit/messages-frontend/_error.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_success.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_warning.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_info.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_network_error.html' %}
+</body>
+
+</html>

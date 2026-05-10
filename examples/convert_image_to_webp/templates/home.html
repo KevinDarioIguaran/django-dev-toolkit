@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-10">
+    <section class="rounded-3xl border border-slate-200 bg-white p-10 shadow-lg shadow-slate-200/80">
+        <div class="mb-8 text-center">
+            <span class="inline-flex rounded-full bg-emerald-100 px-4 py-1 text-sm font-semibold text-emerald-700">{% trans "Product Panel" %}</span>
+            <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-900">{% trans "Welcome to the product manager" %}</h1>
+            <p class="mt-3 text-slate-600">{% trans "Create and view products with automatically converted WebP images."%}</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+            <a href="{% url 'demo_app:product_list' %}"
+                class="rounded-3xl border border-slate-200 bg-slate-50 px-6 py-8 text-center transition hover:-translate-y-1 hover:bg-slate-100">
+                <p class="text-2xl font-semibold text-slate-900">{% trans "Product List" %}</p>
+                <p class="mt-2 text-sm text-slate-600">{% trans "Review created products and open each one's details."%}</p>
+            </a>
+            <a href="{% url 'demo_app:product_create' %}"
+                class="rounded-3xl border border-slate-200 bg-slate-50 px-6 py-8 text-center transition hover:-translate-y-1 hover:bg-slate-100">
+                <p class="text-2xl font-semibold text-slate-900">{% trans "Create Product" %}</p>
+                <p class="mt-2 text-sm text-slate-600">{% trans "Add a new product and upload its photo." %}</p>
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

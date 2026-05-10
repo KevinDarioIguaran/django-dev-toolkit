@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+MessageRenderer
+{% endblock %}
+
+{% block content %}
+
+<div class="mx-auto max-w-7xl space-y-10 px-6 py-10">
+
+    <section class="overflow-hidden rounded-3xl border border-gray-200 bg-white">
+        <div class="border-b border-gray-200 p-8">
+            <h1 class="text-4xl font-black tracking-tight text-zinc-900">
+                MessageRenderer Demo
+            </h1>
+
+            <p class="mt-4 text-base leading-7 text-zinc-600">
+                Examples of the 4 types of messages rendered from Django
+            </p>
+        </div>
+
+        <div class="grid gap-6 p-6 md:grid-cols-2">
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <h2 class="text-2xl font-bold text-zinc-900">
+                    Error
+                </h2>
+
+                <div class="mt-6">
+                    {{ error_message|safe }}
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <h2 class="text-2xl font-bold text-zinc-900">
+                    Success
+                </h2>
+
+                <div class="mt-6">
+                    {{ success_message|safe }}
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <h2 class="text-2xl font-bold text-zinc-900">
+                    Warning
+                </h2>
+
+                <div class="mt-6">
+                    {{ warning_message|safe }}
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <h2 class="text-2xl font-bold text-zinc-900">
+                    Info
+                </h2>
+
+                <div class="mt-6">
+                    {{ info_message|safe }}
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="overflow-hidden rounded-3xl border border-gray-200 bg-white">
+        <div class="border-b border-gray-200 p-8">
+            <h1 class="text-4xl font-black tracking-tight text-zinc-900">
+                JavaScript Renderer Demo
+            </h1>
+
+            <p class="mt-4 text-base leading-7 text-zinc-600">
+                Examples of the 4 types of messages rendered from JavaScript
+            </p>
+        </div>
+
+        <div class="grid gap-6 p-6 md:grid-cols-2">
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-2xl font-bold text-zinc-900">
+                        Error
+                    </h2>
+
+                    <button
+                        id="error-button"
+                        class="rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-700">
+                        Show Error
+                    </button>
+                </div>
+
+                <div
+                    class="mt-6"
+                    id="error">
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-2xl font-bold text-zinc-900">
+                        Success
+                    </h2>
+
+                    <button
+                        id="success-button"
+                        class="rounded-xl bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-700">
+                        Show Success
+                    </button>
+                </div>
+
+                <div
+                    class="mt-6"
+                    id="success">
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-2xl font-bold text-zinc-900">
+                        Warning
+                    </h2>
+
+                    <button
+                        id="warning-button"
+                        class="rounded-xl bg-yellow-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600">
+                        Show Warning
+                    </button>
+                </div>
+
+                <div
+                    class="mt-6"
+                    id="warning">
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6">
+                <div class="flex items-center justify-between gap-4">
+                    <h2 class="text-2xl font-bold text-zinc-900">
+                        Info
+                    </h2>
+
+                    <button
+                        id="info-button"
+                        class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">
+                        Show Info
+                    </button>
+                </div>
+
+                <div
+                    class="mt-6"
+                    id="info">
+                </div>
+            </article>
+
+            <article class="rounded-3xl border border-gray-200 bg-gray-50 p-6 md:col-span-2">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <h2 class="text-2xl font-bold text-zinc-900">
+                        Network Error
+                    </h2>
+
+                    <button
+                        id="network-error-button"
+                        class="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-black">
+                        Trigger API Error
+                    </button>
+                </div>
+
+                <div
+                    class="mt-6"
+                    id="network-error">
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+</div>
+
+<script>
+    document.getElementById('error-button').addEventListener('click', () => {
+        new MessageRenderer(
+            'error',
+            'This is an error message rendered from JavaScript!'
+        ).toggle('error');
+    });
+
+    document.getElementById('success-button').addEventListener('click', () => {
+        new MessageRenderer(
+            'success',
+            'This is a success message rendered from JavaScript!'
+        ).toggle('success');
+    });
+
+    document.getElementById('warning-button').addEventListener('click', () => {
+        new MessageRenderer(
+            'warning',
+            'This is a warning message rendered from JavaScript!'
+        ).toggle('warning');
+    });
+
+    document.getElementById('info-button').addEventListener('click', () => {
+        new MessageRenderer(
+            'info',
+            'This is an info message rendered from JavaScript!'
+        ).toggle('info');
+    });
+
+    document.getElementById('network-error-button').addEventListener('click', async () => {
+        try {
+            const response = await fetch('/api/endpoint-that-does-not-exist/');
+
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+
+            await response.json();
+
+        } catch {
+            new MessageRenderer(
+                'network'
+            ).toggle('network-error');
+        }
+    });
+</script>
+
+{% endblock %}

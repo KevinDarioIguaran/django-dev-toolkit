@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-6 pb-12">
+    <div class="grid gap-8 lg:grid-cols-[1.5fr_0.9fr]">
+        <section class="rounded-[2rem] bg-white shadow-xl border border-zinc-200 p-8">
+            <div class="space-y-8">
+                <div class="space-y-4">
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
+                        {% trans "Interactive example" %}
+                    </span>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-zinc-900">{% trans "Welcome to the translation app" %}</h1>
+                    <p class="max-w-2xl text-zinc-600">{% trans "This mockup shows a modern interface with a language selector, quick translation, and an accessible sidebar." %}</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

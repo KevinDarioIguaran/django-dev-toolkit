@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-09 20:06-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: django_dev_toolkit/models.py:6 django_dev_toolkit/models.py:9
+msgid "Código"
+msgstr "código"
+
+#: django_dev_toolkit/models.py:7
+msgid "Nombre"
+msgstr "nombre"
+
+#: django_dev_toolkit/models.py:8
+msgid "RTL"
+msgstr "RTL"
+
+#: django_dev_toolkit/models.py:11 templates/partials/_sidebar.html:16
+msgid "Idioma"
+msgstr "Idioma"
+
+#: django_dev_toolkit/models.py:12
+msgid "Idiomas"
+msgstr "Idiomas"
+
+#: django_dev_toolkit/templates/django_dev_toolkit/messages-frontend/_network_error.html:6
+msgid "Network connection error"
+msgstr "Error de conexión de red"
+
+#: django_dev_toolkit/validators.py:40
+msgid "Archivo no válido."
+msgstr "Archivo no válido."
+
+#: django_dev_toolkit/validators.py:44
+#, python-format
+msgid "%(name)s: Tipo de archivo no permitido."
+msgstr "%(name)s: Tipo de archivo no permitido."
+
+#: django_dev_toolkit/validators.py:49
+#, python-format
+msgid "%(name)s: El archivo no tiene extensión."
+msgstr "%(name)s: El archivo no tiene extensión."
+
+#: django_dev_toolkit/validators.py:56
+#, python-format
+msgid "%(name)s: Extensión no permitida (%(exts)s)."
+msgstr "%(name)s: Extensión no permitida (%(exts)s)."
+
+#: django_dev_toolkit/validators.py:64
+#, python-format
+msgid "%(name)s: Excede el tamaño máximo permitido (%(max)s MB)."
+msgstr "%(name)s: Excede el tamaño máximo permitido (%(max)s MB)."
+
+#: django_dev_toolkit/validators.py:82
+#, python-format
+msgid "%(name)s: Formato no permitido (%(fmt)s)."
+msgstr "%(name)s: Formato no permitido (%(fmt)s)."
+
+#: django_dev_toolkit/validators.py:91
+#, python-format
+msgid "%(name)s: La extensión no coincide con el formato real (%(fmt)s)."
+msgstr "%(name)s: La extensión no coincide con el formato real (%(fmt)s)."
+
+#: django_dev_toolkit/validators.py:99
+#, python-format
+msgid "%(name)s: Dimensiones demasiado grandes (%(w)sx%(h)s)."
+msgstr "%(name)s: Dimensiones demasiado grandes (%(w)sx%(h)s)."
+
+#: django_dev_toolkit/validators.py:111
+#, python-format
+msgid "%(name)s: Archivo inválido o corrupto."
+msgstr "%(name)s: Archivo inválido o corrupto."
+
+#: templates/home.html:17
+msgid "Interactive example"
+msgstr "Ejemplo interactivo"
+
+#: templates/home.html:19
+msgid "Welcome to the translation app"
+msgstr "Bienvenido a la aplicación de traducción"
+
+#: templates/home.html:20
+msgid ""
+"This mockup shows a modern interface with a language selector, quick "
+"translation, and an accessible sidebar."
+msgstr ""
+"Esta maqueta muestra una interfaz moderna con un selector de idioma, "
+"traducción rápida y una barra lateral accesible."
+
+#: templates/partials/_sidebar.html:10
+msgid "Translate app example"
+msgstr "Ejemplo de aplicación de traducción"

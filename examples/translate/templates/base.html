@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/partials/_sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'django_dev_toolkit/css/django_dev_toolkit/messages.css' %}">
+    <script src="{% static 'django_dev_toolkit/js/renderers.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'django_dev_toolkit/vendor/flag-icons/css/flag-icons.min.css' %}">
+    <script src="{% static 'js/site.js' %}" defer></script>
+    {% block head %}{% endblock %}
+</head>
+
+<body class="min-h-screen bg-zinc-100 text-zinc-900">
+    <div id="app-container" class="flex min-h-screen">
+        {% include 'partials/_sidebar.html' %}
+        <main class="flex-1 flex flex-col relative">
+            <div class="p-5">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+
+    {% include 'django_dev_toolkit/messages-frontend/_error.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_success.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_warning.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_info.html' %}
+    {% include 'django_dev_toolkit/messages-frontend/_network_error.html' %}
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+{% load i18n %}
+{% load lang_flags %}
+
+{% get_current_language as current_lang %}
+
+<aside
+    class="w-72 bg-[#3D3530] flex-shrink-0 flex flex-col sticky top-0 h-screen overflow-y-auto border-r-4 border-[#C65D3B]">
+    <div class="p-4 border-b border-[#5A5048]">
+        <a href="#" class="block group">
+            <h1 class="paleo-text font-bold duration-300 text-white">{% trans "Translate app example" %}</h1>
+        </a>
+    </div>
+    <div class="p-6 border-t border-[#5A5048] bg-[#2A2522]">
+        <div class="flex items-center gap-2 text-[#B8A99A] text-sm font-medium mb-3">
+            <i class="fa-solid fa-globe text-[#C65D3B]"></i>
+            <span class="uppercase tracking-wider text-xs">{% trans "Idioma" %}</span>
+        </div>
+        <details class="relative lang-dropdown">
+            <summary
+                class="w-full bg-[#3D3530] border border-[#5A5048] rounded px-3 py-2 text-sm text-[#F5F1E8] flex items-center gap-2 hover:bg-[#4A423C] hover:border-[#C65D3B] transition-colors cursor-pointer list-none">
+                {% with current_lang|language_info as lang_info %}
+                <span class="fi fi-{{ lang_info.flag_code }}"></span>
+                <span>{{ lang_info.name }}</span>
+                {% endwith %}
+                <i class="fa-solid fa-chevron-down ml-auto text-xs"></i>
+            </summary>
+            <div
+                class="absolute bottom-full left-0 w-full mb-1 bg-[#2A2522] border border-[#5A5048] rounded shadow-lg max-h-60 overflow-y-auto z-50">
+                {% get_available_languages as available_languages %}
+                {% get_language_info_list for available_languages as languages_info %}
+                {% for lang in languages_info %}
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <input type="hidden" name="language" value="{{ lang.code }}">
+                    <button type="submit"
+                        class="w-full flex items-center gap-2 px-3 py-2 text-sm text-[#F5F1E8] hover:bg-[#4A423C] hover:text-white transition-colors {% if lang.code == current_lang %}bg-[#3D3530] text-[#C65D3B]{% endif %}">
+                        {% with lang.code|language_info as lang_info %}
+                        <span class="fi fi-{{ lang_info.flag_code }}"></span>
+                        <span>{{ lang_info.name }}</span>
+                        {% endwith %}
+                    </button>
+                </form>
+                {% endfor %}
+            </div>
+        </details>
+    </div>
+</aside>

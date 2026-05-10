@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Create Product" %}
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-3xl px-4 py-10">
+    <div class="mb-6 flex items-center justify-between rounded-3xl bg-white px-6 py-5 shadow-lg shadow-slate-200/80">
+        <div>
+            <h1 class="text-3xl font-semibold text-slate-900">{% trans "Create Product" %}</h1>
+            <p class="mt-2 text-sm text-slate-600">{% trans "Fill in the data and upload the product image." %}</p>
+        </div>
+        <a href="{% url 'demo_app:product_list' %}"
+            class="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-slate-700">{% trans "Back" %}</a>
+    </div>
+
+    <div class="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/80">
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div>
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                <p class="mt-2 text-sm text-rose-600">{{ form.name.errors }}</p>
+            </div>
+
+            <div>
+                {{ form.description.label_tag }}
+                {{ form.description }}
+                <p class="mt-2 text-sm text-rose-600">{{ form.description.errors }}</p>
+            </div>
+
+            <div>
+                {{ form.price.label_tag }}
+                {{ form.price }}
+                <p class="mt-2 text-sm text-rose-600">{{ form.price.errors }}</p>
+            </div>
+
+            <div>
+                {{ form.photo.label_tag }}
+                {{ form.photo }}
+                <p class="mt-2 text-sm text-rose-600">{{ form.photo.errors }}</p>
+            </div>
+
+            <button type="submit" class="w-full rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">{% trans "Save" %}</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

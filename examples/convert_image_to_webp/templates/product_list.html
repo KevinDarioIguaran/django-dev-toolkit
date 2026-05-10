@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Lista de productos" %}
+{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-6xl px-4 py-10">
+    <header
+        class="mb-8 flex flex-col gap-4 rounded-3xl bg-white px-8 py-8 shadow-lg shadow-slate-200/80 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-slate-500">{% trans "Products" %}</p>
+            <h1 class="mt-3 text-4xl font-semibold text-slate-900">{% trans "Product List" %}</h1>
+            <p class="mt-2 text-slate-600">{% trans "Here you can see the registered products and access their details." %}</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+            <a href="{% url 'demo_app:home' %}"
+                class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50">{% trans "Home" %}</a>
+            <a href="{% url 'demo_app:product_create' %}"
+                class="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700">{% trans "Create Product" %}</a>
+        </div>
+    </header>
+
+    {% if products %}
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {% for product in products %}
+        <article class="overflow-hidden rounded-3xl bg-white shadow-lg shadow-slate-200/70">
+            <div class="overflow-hidden bg-slate-200">
+                {% if product.photo_webp %}
+                <img src="{{ product.photo_webp.url }}" alt="{{ product.name }}"
+                    class="h-44 w-full transition duration-300 hover:scale-105">
+                {% elif product.photo %}
+                <img src="{{ product.photo.url }}" alt="{{ product.name }}"
+                    class="h-44 w-full transition duration-300 hover:scale-105">
+                {% else %}
+                <div class="flex h-44 items-center justify-center bg-slate-200 text-slate-500">{% trans "No image" %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="space-y-4 p-6">
+                <div class="space-y-2">
+                    <a href="{% url 'demo_app:product_detail' product.pk %}"
+                        class="text-xl font-semibold text-slate-900 hover:text-slate-700">{{ product.name }}</a>
+                    <p class="text-slate-500">{{ product.price }} €</p>
+                </div>
+                <p class="mb-4 max-h-16 overflow-hidden text-slate-600">{{ product.description }}</p>
+                <a href="{% url 'demo_app:product_detail' product.pk %}"
+                    class="inline-flex rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700">{% trans "View" %}</a>
+                <a href="{% url 'demo_app:product_detail' product.pk %}"
+                    class="inline-flex rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700">{% trans "Details" %}</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="rounded-3xl bg-white p-10 text-center shadow-lg shadow-slate-200/70">
+        <p class="text-xl font-semibold text-slate-900">{% trans "No products available" %}</p>
+        <p class="mt-2 text-slate-600">{% trans "Add your first product to get started." %}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

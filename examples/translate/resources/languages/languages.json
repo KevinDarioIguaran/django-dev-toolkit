@@ -1,0 +1,14 @@
+[
+  {
+    "code": "en",
+    "name": "English",
+    "is_rtl": false,
+    "country_code": "gb"
+  },
+  {
+    "code": "es",
+    "name": "Español",
+    "is_rtl": true,
+    "country_code": "es"
+  }
+]

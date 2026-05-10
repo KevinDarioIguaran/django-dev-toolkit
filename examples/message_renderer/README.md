@@ -1,0 +1,1 @@
+You need a .env file with the necessary variables
