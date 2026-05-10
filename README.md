@@ -49,7 +49,7 @@ A modular toolkit for Django developers. Reusable utilities for i18n automation,
 Detailed documentation is available in the `docs/` directory:
 
 - **[Installation](docs/installation.md)** - How to install and configure django-dev-toolkit
-- **[Usage](docs/usage.md)** - Quickstart guide, architecture overview, and module reference
+- **[Settings](docs/settings.md)** - Quickstart guide, architecture overview, and module reference
 - **[Examples ](docs/examples.md)** - Basic examples of use
 
 ---
