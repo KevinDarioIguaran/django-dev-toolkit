@@ -13,8 +13,6 @@ A modular toolkit for Django developers. Reusable utilities for i18n automation,
 - [Features](#features)
 - [Requirements](#requirements)
 - [Documentation](#documentation)
-  - [Installation](docs/installation.md)
-  - [Examples](docs/examples.md)
 - [License](#license)
 
 ---
