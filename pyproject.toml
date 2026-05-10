@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-dev-toolkit"
+version = "0.1.0"
+description = "Toolkit for Django development"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Unlicense"
+
+authors = [
+    { name = "Kevin Iguaran" }
+]
+
+keywords = [
+    "django",
+    "toolkit",
+    "django-tools",
+    "development"
+]
+
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+dependencies = [
+    "Django>=4.2",
+    "Pillow>=10.0",
+    "polib>=1.2",
+    "googletrans>=4.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/KevinDarioIguaran/django-dev-toolkit"
+Repository = "https://github.com/KevinDarioIguaran/django-dev-toolkit"
+Issues = "https://github.com/KevinDarioIguaran/django-dev-toolkit/issues"
+
+[tool.setuptools]
+py-modules = []
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
