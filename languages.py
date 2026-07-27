@@ -11,7 +11,7 @@ def generate_languages_file():
     """Generate a JSON file with all available languages in the path /resources/languages"""
     try:
         from .models import Language
-        languages = Language.objects.all().order_by('name')
+        languages = Language.objects.filter(is_ui=True).order_by('name')
         
         languages_data = []
         for lang in languages:
